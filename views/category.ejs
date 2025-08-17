@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoria</title>
+    <link rel="stylesheet" href="/css/GlobalStyle.css">
+
+</head>
+
+<body>
+    <div class="top-category">
+        <a href="/"><img src="/theme/4"></a>
+    </div>
+    <div class="content-movies">
+        <div class="grid-movie">
+            <% movies.forEach((movie)=> { %>
+                <a href="/play/movie/<%= movie.id %>" class="cart-box">
+                    <div class="cover">
+                        <img src="<%= movie.cover %>">
+                    </div>
+                    <h3>
+                        <%= movie.name %>
+                    </h3>
+                </a >
+                <% }); %>
+        </div>
+    </div>
+</body>
+
+</html>

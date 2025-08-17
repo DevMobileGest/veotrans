@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="/css/GlobalStyle.css">
+    <!-- Incluye estilos de Font Awesome -->
+    <link href="/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <style>
+        .active {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <a href="/"><img src="/theme/4"></a>
+    </div>
+    <div class="medium">
+        <div class="background">
+            <img src="/theme/1">
+        </div>
+        <div class="box">
+            <div class="content">
+                <div class="list-music">
+                    <ul id="playlist">
+                        <% musics.forEach((music, index)=> { %>
+                            <li data-id="<%= music.id %>">
+                                <%= music.name %>
+                            </li>
+                            <% }); %>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-repro">
+                <audio id="audio-player" controls>
+                    <source src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="/theme/0">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = {
+                playlist: document.getElementById('playlist'),
+                listItems: document.querySelectorAll('#playlist li'),
+                audioPlayer: document.getElementById('audio-player')
+            };
+
+            elements.listItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    elements.listItems.forEach(item => item.classList.remove('active'));
+                    item.classList.add('active');
+                    playSong(item.dataset.id);
+                });
+            });
+
+            elements.audioPlayer.addEventListener('ended', nextSong);
+
+            function playSong(id) {
+                console.log(id);
+                if (id) {
+                    elements.audioPlayer.src = `/music/${id}`;
+                    elements.audioPlayer.play();
+                }
+            }
+
+            function nextSong() {
+                const currentActiveElement = elements.playlist.querySelector('.active');
+                const nextElement = currentActiveElement.nextElementSibling;
+                if (currentActiveElement) {
+                    currentActiveElement.classList.remove('active');
+                }
+                if (nextElement) {
+                    nextElement.classList.add('active');
+                    playSong(nextElement.dataset.id);
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play</title>
+    <link rel="stylesheet" href="/css/GlobalStyle.css">
+    <link rel="stylesheet" href="/css/movieStyle.css">
+</head>
+
+<body>
+    <div class="content-player">
+        <div class="ads" id="ads-cont">
+            <video id="ad-video" class="ads-video" autoplay controls>
+                <source src="/ads" type="video/mp4">
+            </video>
+        </div>
+        <div class="playMovie" id="playMovie" style="display: none;">
+            <video id="play-movie-video" class="video-play" controls>
+                <source src="/movie/<%= id %>" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <script>
+        const playMovieVideo = document.getElementById('play-movie-video');
+        const playMovie = document.getElementById('playMovie')
+        const ads = document.getElementById('ads-cont')
+        document.getElementById('ad-video').addEventListener('play', function () {
+            this.controls = false;
+        });
+        document.getElementById('ad-video').addEventListener('ended', () => {
+            // Cuando el anuncio termina, muestra la película
+            playMovie.style.display = 'flex';
+            ads.style.display = 'none';
+            playMovieVideo.play();
+            playMovieVideo.requestFullscreen();
+        });
+    </script>
+
+</body>
+
+</html>

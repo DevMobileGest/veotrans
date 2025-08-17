@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="/css/GlobalStyle.css">
+    <!-- Incluye estilos de Font Awesome -->
+    <link href="/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="top">
+        <a href="/"><img src="/theme/4"></a>
+    </div>
+    <div class="medium">
+        <div class="background">
+            <img src="/theme/1">
+        </div>
+        <div class="box">
+            <div class="content">
+                <button class="previous-button">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="scene">
+                    <div class="carousel">
+                        <div class="carousel__cell">
+                            <a href="/movie/category/A" class="box">
+                                <i class="fas fa-explosion"></i>
+                                <h3>Accion</h3>
+                            </a>
+                        </div>
+                        <div class="carousel__cell">
+                            <a href="/movie/category/B" class="box">
+                                <i class="fas fa-ticket"></i>
+                                <h3>Estrenos</h3>
+                            </a>
+                        </div>
+                        <div class="carousel__cell">
+                            <a href="/movie/category/C" class="box">
+                                <i class="fa-regular fa-face-grin-tears"></i>
+                                <h3>Comedia</h3>
+                            </a>
+                        </div>
+                        <div class="carousel__cell">
+                            <a href="/movie/category/D" class="box">
+                                <i class="fa fa-masks-theater"></i>
+                                <h3>Drama</h3>
+                            </a>
+                        </div>
+                        <div  class="carousel__cell">
+                            <a href="/movie/category/E" class="box">
+                                <i class="fa-solid fa-heart"></i>
+                                <h3>Romance</h3>
+                            </a>
+                        </div>
+                        <div class="carousel__cell">
+                            <a  href="/movie/category/F" class="box">
+                                <i class="fa-solid fa-dragon"></i>
+                                <h3>Animcion</h3>
+                            </a>
+                        </div>
+                        <div class="carousel__cell">
+                            <a  href="/movie/category/G" class="box">
+                                <i class="fa-solid fa-photo-film"></i>
+                                <h3>Documental</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="next-button">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="/theme/0">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.querySelector('.carousel');
+            const carouselCells = carousel.querySelectorAll('.carousel__cell');
+            const cellCount = carouselCells.length;
+            const theta = 360 / cellCount;
+
+            carouselCells.forEach(function (cell, index) {
+                const angle = theta * index;
+                cell.style.transform = `rotateY(${angle}deg) translateZ(288px)`;
+            });
+
+            var selectedIndex = 0;
+
+            function rotateCarousel() {
+                var angle = selectedIndex / cellCount * -360;
+                carousel.style.transform = 'rotateY(' + angle + 'deg)';
+            }
+
+            var prevButton = document.querySelector('.previous-button');
+            prevButton.addEventListener('click', function () {
+                selectedIndex--;
+                rotateCarousel();
+            });
+
+            var nextButton = document.querySelector('.next-button');
+            nextButton.addEventListener('click', function () {
+                selectedIndex++;
+                rotateCarousel();
+            });
+        });
+    </script>
+</body>
+
+</html>

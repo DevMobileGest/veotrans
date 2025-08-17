@@ -1,0 +1,651 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: rgb(0, 2, 22);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+}
+
+.top {
+    width: 100%;
+    height: 12%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.top img {
+    height: 100%;
+    padding: 5px;
+    filter: drop-shadow(-1px 1px 5px rgba(0, 0, 0, 0.7));
+    object-fit: scale-down;
+}
+
+.top-category img {
+    height: 100%;
+    padding: 5px;
+    filter: drop-shadow(-1px 1px 5px rgba(0, 0, 0, 0.7));
+    object-fit: scale-down;
+}
+
+.medium {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.medium-video {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+}
+
+
+
+
+
+.medium .content {
+    width: 100%;
+    height: 100%;
+    padding-left: 80px;
+}
+
+.list-music {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    left: -80px;
+    width: 100%;
+    height: 100%;
+}
+
+.scene {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    perspective: 1000px;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.carousel__cell {
+    position: absolute;
+    aspect-ratio: 3/2;
+    width: 60%;
+}
+
+.carousel__cell .box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: none;
+    flex-direction: column;
+    transition: .5s ease-out;
+    cursor: pointer;
+
+}
+
+.carousel__cell .box i {
+    position: relative;
+    font-size: 3rem;
+}
+
+.carousel__cell .box h3 {
+    position: relative;
+    font-size: 1.2rem;
+}
+
+.carousel__cell:nth-child(1) .box {
+    background: #f007;
+}
+
+.carousel__cell:nth-child(2) .box {
+    background: #04f7;
+}
+
+.carousel__cell:nth-child(3) .box {
+    background: #ff07;
+}
+
+.carousel__cell:nth-child(4) .box {
+    background: #21f7;
+}
+
+.carousel__cell:nth-child(5) .box {
+    background: #f6f7;
+}
+
+.carousel__cell:nth-child(6) .box {
+    background: #0ff7;
+}
+
+.carousel__cell:nth-child(7) .box {
+    background: #0f47;
+}
+
+
+.carousel__cell .box:hover {
+    transform: scale(1.1);
+}
+
+.top-category {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.content-movies {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+
+}
+
+
+.grid-movie .cart-box {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    text-align: center;
+    color: #fff;
+
+}
+
+.grid-movie .cart-box .cover {
+    aspect-ratio: 2/3;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.grid-movie .cart-box h3{
+    padding-top: 5px;
+}
+
+
+.grid-movie .cart-box .cover img{
+    width: 100%;
+    height: 100%;
+}
+
+.grid-video .cart-box {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    text-align: center;
+    color: #fff;
+}
+
+.grid-video .cart-box .cover {
+    aspect-ratio: 3/2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #0285;
+    border-radius: 10px;
+}
+
+.grid-video .cart-box .cover video{
+    object-fit: scale-down;
+    width: 100%;
+    height: 100%;
+}
+
+.content button {
+    aspect-ratio: 1/3;
+    height: 100%;
+    background: #0007;
+    border: none;
+    position: absolute;
+    z-index: 1000;
+}
+
+
+.content button i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.content button:nth-child(1) {
+    left: 0;
+}
+
+.content button:nth-child(3) {
+    right: 0;
+
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+
+.list-music ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content-repro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+
+}
+
+.content-repro audio {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-repro audio source {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.list-music ul li {
+    width: 80%;
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #fff2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: #fff;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.list-music ul li.active {
+    transform: scale(1.1);
+    background-color: #0882;
+    color: #0ff;
+    width: 90%;
+}
+
+.list-music ul li:hover {
+    width: 90%;
+    transform: scale(1.1);
+    box-shadow: 0 3px 10px #0006;
+}
+
+.medium .botones .boton-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+.medium .botones .boton-box a {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #fff3;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-left: 2px solid #fff4;
+    border-bottom: 2px solid #fff4;
+    transition: .2s ease-in-out;
+}
+
+.medium .botones .boton-box a:hover {
+    border: 1px solid #fff4;
+}
+
+.medium .botones .boton-box a i {
+    font-size: 3rem;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(-1px 1px 5px rgba(0, 0, 0, 0.7));
+}
+
+.bottom {
+    width: 100%;
+    height: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.bottom img {
+    width: 100%;
+    object-fit: scale-down;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+}
+
+.grid-movie{
+    width: 100%;
+    padding-top: 100px;
+    display: grid;
+    grid-auto-rows: minmax(300px, auto);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3em;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+}
+
+.grid-video {
+    width: 100%;
+    padding-top: 100px;
+    display: grid;
+    grid-auto-rows: minmax(230px, auto);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3em;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: center;
+}
+
+
+.medium .background {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medium .box {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.medium .botones {
+    height: 100%;
+    width: 50%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.medium .background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+}
+
+@media only screen and (max-width: 900px) {
+    .grid-movie, .grid-video {
+        width: 100%;
+        padding-top: 100px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3em;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+
+.medium .box  .content{
+    width: 100%;
+    height: 80%;
+    overflow-x: auto;
+}
+
+@media only screen and (max-width: 700px) {
+    .grid-movie, .grid-video {
+        width: 100%;
+        padding-top: 100px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3em;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .medium .background {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .list-music{
+        left: 0;
+    }
+
+    
+    .medium .box {
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, .2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    
+    .medium{
+        flex-direction: column;
+    }
+    
+
+    .medium .content {
+        padding-left: 0;
+    }
+    
+
+    .scene {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        perspective: 1000px;
+    }
+    
+    .carousel {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        transform: none;
+    }
+    
+    .carousel__cell {
+        position: absolute;
+        aspect-ratio: 2/3;
+        height: 60%;
+        width: auto;
+    }
+    
+    .carousel__cell .box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: none;
+        flex-direction: column;
+        transition: .5s ease-out;
+        cursor: pointer;
+    
+    }
+    
+    .carousel__cell .box i {
+        position: relative;
+        font-size: 3rem;
+    }
+    
+    .carousel__cell .box h3 {
+        position: relative;
+        font-size: 1.2rem;
+    }
+    
+    .carousel__cell:nth-child(1) .box {
+        background: #f007;
+    }
+    
+    .carousel__cell:nth-child(2) .box {
+        background: #04f7;
+    }
+    
+    .carousel__cell:nth-child(3) .box {
+        background: #ff07;
+    }
+    
+    .carousel__cell:nth-child(4) .box {
+        background: #21f7;
+    }
+    
+    .carousel__cell:nth-child(5) .box {
+        background: #f6f7;
+    }
+    
+    .carousel__cell:nth-child(6) .box {
+        background: #0ff7;
+    }
+    
+    .carousel__cell:nth-child(7) .box {
+        background: #0f47;
+    }
+
+    .medium .botones {
+        height: 50%;
+        width: 100%;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, .2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: 0 8px 12px 0 rgba(31, 38, 135, 0.2);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .grid-videos {
+        width: 100%;
+        padding-top: 100px;
+        display: grid;
+        grid-template-columns: repeat(1, .6fr);
+        gap: 3em;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
