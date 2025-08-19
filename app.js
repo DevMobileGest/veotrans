@@ -18,7 +18,7 @@ const {
 
 ffmpeg.setFfmpegPath(ffmpegStatic);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 const BASE_URL = `http://0.0.0.0:${PORT}`;
 
 const app = express();
